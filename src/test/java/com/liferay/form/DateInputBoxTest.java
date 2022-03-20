@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.time.Duration;
 
-public class DateInputBoxTest extends PreparationTest {
+public class dateInputBoxTest extends PreparationTest {
     @Test
     public void DateInputBoxTest() {
         String nameInputBox = "//div[@class=\"col-ddm col-md-7\"]//div//div//div//input";
