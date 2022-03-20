@@ -36,7 +36,7 @@ public class FormSubmissionPageTests extends PreparationTest {
     }
 
     @Test
-    public void checktextBoxName() throws InterruptedException {
+    public void checkTextBoxName() throws InterruptedException {
         File csv = new File(testResources, "submission-page-text-box.csv");
         for (Messages msg : ValidationMsg.getValidationMsgs(csv)) {
             Assert.assertEquals(webDriver.findElement(By.className(msg.getCondition())).getText(), msg.getValue());
