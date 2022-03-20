@@ -16,7 +16,7 @@ public class PreparationTest {
     }
 
     @BeforeClass
-    public void setUpEnv() throws InterruptedException {
+    public void setUpEnv() {
         Path p1 = Paths.get("src","drivers", "chromedriver.exe");
         System.setProperty("webdriver.chrome.driver",p1.toAbsolutePath().toString());
 

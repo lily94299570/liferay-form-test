@@ -16,6 +16,26 @@ public class FormSubmissionPageTests extends PreparationTest {
     String testResources = p2.toAbsolutePath().toString();
 
     @Test
+    public void checkBtnName() throws InterruptedException {
+        File csv = new File(testResources, "submission-page-button.csv");
+        for (Messages msg : ValidationMsg.getValidationMsgs(csv)) {
+            Assert.assertEquals(webDriver.findElement(By.className(msg.getCondition())).getText(), msg.getValue());
+        }
+
+        webDriver.findElement(By.className("direction-left-side")).click();
+        webDriver.findElement(By.className("dropdown-menu-left-side")).click();
+        Thread.sleep(2000);
+
+        for (Messages msg : ValidationMsg.getValidationMsgs(csv)) {
+            Assert.assertEquals(webDriver.findElement(By.className(msg.getCondition())).getText(), msg.getPTValue());
+        }
+
+        webDriver.findElement(By.className("direction-left-side")).click();
+        webDriver.findElement(By.className("dropdown-menu-left-side")).click();
+        Thread.sleep(2000);
+    }
+
+    @Test
     public void checktextBoxName() throws InterruptedException {
         File csv = new File(testResources, "submission-page-text-box.csv");
         for (Messages msg : ValidationMsg.getValidationMsgs(csv)) {
@@ -48,26 +68,6 @@ public class FormSubmissionPageTests extends PreparationTest {
 
         for (Messages msg : ValidationMsg.getValidationMsgs(csv)) {
             Assert.assertEquals(webDriver.findElement(By.xpath(msg.getCondition())).getText(), msg.getPTValue());
-        }
-
-        webDriver.findElement(By.className("direction-left-side")).click();
-        webDriver.findElement(By.className("dropdown-menu-left-side")).click();
-        Thread.sleep(2000);
-    }
-
-    @Test
-    public void checkBtnName() throws InterruptedException {
-        File csv = new File(testResources, "submission-page-button.csv");
-        for (Messages msg : ValidationMsg.getValidationMsgs(csv)) {
-            Assert.assertEquals(webDriver.findElement(By.className(msg.getCondition())).getText(), msg.getValue());
-        }
-
-        webDriver.findElement(By.className("direction-left-side")).click();
-        webDriver.findElement(By.className("dropdown-menu-left-side")).click();
-        Thread.sleep(2000);
-
-        for (Messages msg : ValidationMsg.getValidationMsgs(csv)) {
-            Assert.assertEquals(webDriver.findElement(By.className(msg.getCondition())).getText(), msg.getPTValue());
         }
 
         webDriver.findElement(By.className("direction-left-side")).click();
