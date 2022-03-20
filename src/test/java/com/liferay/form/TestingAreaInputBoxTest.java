@@ -9,7 +9,7 @@ import java.time.Duration;
 
 public class TestingAreaInputBoxTest extends PreparationTest {
     @Test
-    public void TestingAreaInputBoxTest(){
+    public void testingAreaInputBoxTest(){
         String nameInputBox = "//div[@class=\"col-ddm col-md-7\"]//div//div//div//input";
         String dateInputBox = "//input[@placeholder=\"__/__/____\"]";
         String testingAreaInputBox = "//div[@class=\"col-ddm col-md-12\"]//div//div//div//textarea";
